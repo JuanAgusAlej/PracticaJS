@@ -34,29 +34,21 @@ function contarOvejas() {
         { name: 'Ki Na Ma', color: 'rojo'}
       ]
      
-      let ovejasFiltradas = []
+  let ovejasFiltradasColor = ovejas.filter(function (oveja) {
+    return oveja.color.toLowerCase().includes("rojo")
+  })
      
-    for (let i = 0; i < ovejas.length; i++) {
-    
-        /*console.log("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-        for (const key in ovejas[i]) {
-            console.log(`${key} : ${ovejas[i][key]}`)
-            
-        }*/
-        if (ovejas[i].color.includes("rojo")){
-           console.log(ovejas[i].name)
-         
-            
-            if (ovejas.find(function (ovejas) {
-                return ovejas.name.toUpperCase() === "NA"
-              })) {
-                console.log(ovejas[i])
-                ovejasFiltradas.push(ovejas[i])
-            }
-        }
-        
-      }
-     // return ovejasFiltradas
-    
+  
+  const filtrarNombre = function (array) {
+    let ovejasFeltradasnombre = array.filter(function (oveja) {
+      return oveja.name.toLowerCase().includes("na")
+    })
+    return ovejasFeltradasnombre
   }
+
+  ovejasFiltradasColor = filtrarNombre(ovejasFiltradasColor);
+  console.log(ovejasFiltradasColor)
+    
+    
+}
 
