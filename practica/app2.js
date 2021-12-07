@@ -26,6 +26,7 @@ const listGifts = function (carta) {
  
   const contenido = carta.split(" ")
   
+  //elimina los espacios y los regalos tachados
   for (let i = 0; i < contenido.length; i++) {
       
     if (contenido[i].includes("_")) {
@@ -38,6 +39,7 @@ const listGifts = function (carta) {
         
   }
 
+  //crea el arreglo con la cantidad de objetos
   let nuevoContenido = contenido.map(function (regalo, i) {
     const filtro = contenido.filter(function (repetido,j) {
       
@@ -50,18 +52,11 @@ const listGifts = function (carta) {
       
     })
     
-    
-
     return [contenido[i], filtro.length+1]
 
 } )
 
-// for (let i = 0; i < contenido.length; i++) {
-//   if (contenido.includes(contenido[i])) {
-//     contenido[i]=[contenido[i], ]   
-//   }
-  
-// }
+  //elimina los espacion vacios del arreglo
 for (let i = 0; i < nuevoContenido.length; i++) {
   
   if (!nuevoContenido[i]) {
@@ -69,9 +64,10 @@ for (let i = 0; i < nuevoContenido.length; i++) {
     i--
   }
       
-}
+  }
+  //crea el objeto
 const obj = Object.fromEntries(nuevoContenido)
- // console.log(obj)
+
   return obj
 }
 
