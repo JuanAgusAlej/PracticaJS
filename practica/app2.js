@@ -22,5 +22,3 @@ console.log(regalos)
 }
 */
 
-Ten en cuenta que los tests pueden ser más exhaustivos... 😝 ¡Cuidado con contar espacios vacíos!
-*/
