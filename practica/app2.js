@@ -26,47 +26,21 @@ const listGifts = function (carta) {
  
   const contenido = carta.split(" ")
   
-  //elimina los espacios y los regalos tachados
-  for (let i = 0; i < contenido.length; i++) {
-      
-    if (contenido[i].includes("_")) {
-      contenido.splice(i,1)      
-    }
-    if (!contenido[i]) {
-      contenido.splice(i, 1)
-      i--
-    }
-        
-  }
 
-  //crea el arreglo con la cantidad de objetos
-  let nuevoContenido = contenido.map(function (regalo, i) {
-    const filtro = contenido.filter(function (repetido,j) {
-      
-      if (repetido === regalo && i<j) {
-        return repetido
-      } else if (repetido === regalo && i > j) {
-        contenido.splice(j, 1)
-       
-      }
-      
-    })
-    
-    return [contenido[i], filtro.length+1]
-
-} )
-
-  //elimina los espacion vacios del arreglo
-for (let i = 0; i < nuevoContenido.length; i++) {
   
-  if (!nuevoContenido[i]) {
-    nuevoContenido.splice(i, 1)
-    i--
-  }
-      
-  }
-  //crea el objeto
-const obj = Object.fromEntries(nuevoContenido)
+  //Crea un arreglo con los objetos que no tienen _ y no estan vacios
+  const sinEspacios = arreglo.filter(function(array){
+    return array !== "" && !array.includes("_");
+  });
+
+  //objeto vacio
+  let repetidos = {};
+
+  //crea un obejot con los datos guardados sin repiticion
+  sinEspacios.forEach(function(numero){
+    repetidos[numero] = (repetidos[numero] || 0) + 1;
+  });
+
 
   return obj
 }
